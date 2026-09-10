@@ -1,0 +1,54 @@
+version : "3.8"
+
+services : 
+  frontend : 
+    build : ./frontend
+    ports : 
+      - "80:80"
+    depends_on : 
+      - backend
+
+  backend : 
+    build : ./backend
+    environment : 
+      OPENAI_API_KEY : ...
+      OPENAI_MODEL_NAME : gpt-4.1-mini
+      OPENAI_EMBEDDING_MODEL_NAME : text-embedding-3-small
+
+      ROUTER_MAX_TOKENS : 100
+      REWRITE_MAX_TOKENS : 150
+      SUMMARY_MAX_TOKENS : 800
+      ANSWER_MAX_TOKENS : 500
+      GUARDRAIL_MAX_TOKENS : 100
+
+      HUGGINGFACE_MODEL_NAME : meta-llama/Llama-3.1-8B-Instruct
+      HUGGINGFACE_EMBEDDING_MODEL_NAME : BAAI/bge-small-en-v1.5
+      HF_TOKEN : ...
+
+      TAVILY_API_KEY : ...
+
+      PINECONE_DIMENSION : 512
+      PINECONE_API_KEY : ...
+      PINECONE_DENSE_INDEX_NAME : ...
+      PINECONE_SPARSE_INDEX_NAME : ...
+
+      CHECKPOINTER_POSTGRES_URL : postgresql://...?sslmode=require
+      SQL_ALCHEMY_POSTGRES_URL : postgresql+asyncpg://...?ssl=require
+
+      CHUNK_SIZE : 1000
+      CHUNK_OVERLAP : 200
+
+      JWT_SECRET_KEY : ...
+      JWT_ALGORITHM : HS256
+      ACCESS_TOKEN_EXPIRATION_MINUTES : 15
+      REFRESH_TOKEN_EXPIRATION_DAYS : 7
+
+      COHERE_API_KEY : ...
+
+      MAX_HISTORY_TOKENS : 6000
+      RECENT_MESSAGE_COUNT : 8
+
+      AWS_ACCESS_KEY_ID : ...
+      AWS_SECRET_ACCESS_KEY : ...
+      AWS_REGION : ...
+      AWS_S3_BUCKET : ...
