@@ -189,6 +189,37 @@ You'll need accounts/API keys for the following services, since Nexus relies on 
 
 You'll also need **Python 3.10+**, **Node.js**, and optionally **Docker**.
 
+### Option A: Run with Docker (recommended)
+
+1. Open `docker-compose.yml` and fill in all the placeholder values (`...`) with your real API keys, database URLs, and secrets.
+2. From the project root, run:
+   ```bash
+   docker-compose up --build
+   ```
+3. The frontend will be available at `http://localhost` and the backend API at `http://localhost:8000`.
+
+### Option B: Run manually
+
+**Backend**
+```bash
+cd backend
+pip install -r requirements.txt
+```
+Create a `.env` file inside `backend/` with the following variables (see the table below for what each one is for), then start the server:
+```bash
+python run.py
+```
+The API will be available at `http://localhost:8000`.
+
+**Frontend**
+```bash
+cd frontend
+npm install
+npm run dev
+```
+The app will be available at `http://localhost:5173` (Vite's default dev port).
+
+---
 ---
 ## RAG Index Setup
 
@@ -235,36 +266,7 @@ python run.py
 Run this command from the backend directory.
 
 ---
-
-### Option A: Run with Docker (recommended)
-
-1. Open `docker-compose.yml` and fill in all the placeholder values (`...`) with your real API keys, database URLs, and secrets.
-2. From the project root, run:
-   ```bash
-   docker-compose up --build
-   ```
-3. The frontend will be available at `http://localhost` and the backend API at `http://localhost:8000`.
-
-### Option B: Run manually
-
-**Backend**
-```bash
-cd backend
-pip install -r requirements.txt
-```
-Create a `.env` file inside `backend/` with the following variables (see the table below for what each one is for), then start the server:
-```bash
-python run.py
-```
-The API will be available at `http://localhost:8000`.
-
-**Frontend**
-```bash
-cd frontend
-npm install
-npm run dev
-```
-The app will be available at `http://localhost:5173` (Vite's default dev port).
+---
 
 ### Environment variables (backend `.env`)
 
