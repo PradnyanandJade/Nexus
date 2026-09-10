@@ -47,28 +47,59 @@ When you send a message, it doesn't just go straight to an AI model. It passes t
 If any of the safety checks fail at any point, Nexus stops and sends back a clear, polite refusal instead of the AI's answer.
 
 ---
+## Retrieval-Augmented Generation (RAG) Architecture 
+<img width="1375" height="860" alt="image" src="https://github.com/user-attachments/assets/0d84eeac-8116-41ca-82aa-dcde3599ff3e" />
 
-## Tech stack
+---
+## Document Ingestion Pipeline 
+<img width="540" height="785" alt="image" src="https://github.com/user-attachments/assets/1228e030-2e7e-428e-8e0a-80673920d258" />
 
-**Backend**
-- **FastAPI** (Python) — the web server and API
-- **LangGraph** — orchestrates the multi-step pipeline described above
-- **OpenAI models** — power the routing, query rewriting, answering, summarizing, and safety-check steps
-- **Hugging Face** — used for generating document embeddings (the "meaning-based" search representations); a Hugging Face chat model is also configured for future use
-- **Pinecone** — the search index that stores document chunks two ways (meaning-based and keyword-based) for hybrid search
-- **Cohere** — re-ranks search results so the best matches come out on top
-- **Tavily** — the web search provider
-- **PostgreSQL** — stores users, conversations, messages, and document records, and also stores the AI pipeline's own conversation checkpoints (so it can resume/replay a conversation's state)
-- **AWS S3** — stores the actual uploaded document files
-- **JWT (JSON Web Tokens)** — handles login sessions, with short-lived access tokens and longer-lived refresh tokens
-- **Docker** — both backend and frontend ship with their own Dockerfiles, plus a `docker-compose.yml` to run everything together
-- **AWS EC2 — Hosting***
+## Tech Stack
+<img width="2172" height="724" alt="ChatGPT Image Sep 10, 2026, 09_01_29 PM" src="https://github.com/user-attachments/assets/bfea4dc0-f3a2-4d10-a79d-02e0aba616f4" />
 
-**Frontend**
-- **React 19** with **Vite** as the build tool
-- **react-markdown** + **remark-gfm** — renders the AI's answers as nicely formatted Markdown (including tables, lists, etc.)
-- Plain CSS for styling, served in production through **Nginx**
+### Backend & AI
 
+- **FastAPI (Python)** — backend web server and REST API layer
+- **LangGraph** — orchestrates the multi-step AI workflow, including routing, RAG, web search, conversation handling, and guardrails
+- **OpenAI** — powers query routing, query rewriting, conversation summarization, answer generation, and safety/guardrail checks
+- **Hugging Face** — generates document embeddings for semantic retrieval; a Hugging Face chat model is also configured for future use
+- **Pinecone** — vector database storing document chunks in **dense and sparse indexes** for hybrid retrieval
+- **Cohere Rerank** — reranks retrieved chunks to select the most relevant context for answer generation
+- **Tavily** — provides web search for queries routed to the web-search path
+
+### Data & Storage
+
+- **Vercel Postgres (PostgreSQL)** — stores users, documents, conversations, messages, document metadata, and LangGraph conversation checkpoints
+- **AWS S3** — stores the original uploaded documents securely
+- **Pinecone** — stores indexed document representations and metadata for retrieval
+
+### Authentication & Security
+
+- **JWT (JSON Web Tokens)** — authentication using short-lived access tokens and longer-lived refresh tokens
+- **Input Guardrails** — detect potentially unsafe or malicious user input
+- **Context Security Guardrails** — inspect retrieved document/web content for malicious or unsafe instructions
+- **Output Guardrails** — validate generated responses before returning them to the user
+
+### Frontend
+
+- **React 19** — frontend web application
+- **Vite** — frontend build tool and development server
+- **react-markdown** — renders AI responses as Markdown
+- **remark-gfm** — supports GitHub-Flavored Markdown such as tables, lists, and task lists
+- **CSS** — application styling
+- **Nginx** — serves the production React application
+
+### Deployment & Infrastructure
+
+- **Docker** — containerizes the frontend and backend
+- **Docker Compose** — orchestrates the application containers
+- **AWS EC2** — production hosting environment
+  - **React + Nginx container** — serves the frontend
+  - **FastAPI + LangGraph container** — runs the backend and AI pipeline
+  - **Docker Compose** — manages the containers
+- **AWS S3** — cloud object storage for uploaded documents
+- **Vercel Postgres** — managed PostgreSQL database for application data and LangGraph state
+  
 ---
 
 ## Project structure
