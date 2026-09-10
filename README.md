@@ -24,6 +24,8 @@ It has two parts that work together:
 
 ---
 
+<img width="1536" height="1024" alt="ChatGPT Image Sep 10, 2026, 07_45_39 PM" src="https://github.com/user-attachments/assets/d66d88b1-010f-4f30-bd98-e2de4be7e2d0" />
+
 ## How it works, in plain terms
 
 When you send a message, it doesn't just go straight to an AI model. It passes through a pipeline of steps (built using a framework called **LangGraph**, which lets you wire together a sequence of AI-powered steps into a flowchart):
