@@ -189,7 +189,52 @@ You'll need accounts/API keys for the following services, since Nexus relies on 
 
 You'll also need **Python 3.10+**, **Node.js**, and optionally **Docker**.
 
+---
+## RAG Index Setup
 
+Before running the Nexus backend, initialize the required resources for the RAG pipeline.
+
+### 1. Download BM25 Encoder
+
+Downloads the BM25 encoder configuration required for sparse/keyword-based retrieval.
+
+Run from the `backend` directory:
+
+python app/scripts/download_bm25.py
+
+### 2. Create Pinecone Dense Index
+
+Creates the Pinecone dense index used for semantic/vector-based retrieval.
+
+Run:
+
+python app/scripts/create_pinecone_dense_index.py
+
+### 3. Create Pinecone Sparse Index
+
+Creates the Pinecone sparse index used for keyword-based retrieval with BM25.
+
+Run:
+
+python app/scripts/create_pinecone_sparse_index.py
+
+These resources are required for Nexus's hybrid RAG retrieval, which combines:
+
+Dense Retrieval — semantic/meaning-based search
+Sparse Retrieval (BM25) — keyword-based search
+Reciprocal Rank Fusion (RRF) — combines dense and sparse results
+Cohere Reranking — selects the most relevant document chunks
+Running the Backend on Windows
+
+When running FastAPI on Windows, Uvicorn multiprocessing can sometimes cause process-related errors.
+
+Use the provided run.py entry point:
+
+python run.py
+
+Run this command from the backend directory.
+
+---
 
 ### Option A: Run with Docker (recommended)
 
@@ -290,47 +335,3 @@ Together, these components make Nexus a **full-stack, production-oriented AI ass
 - The frontend talks to the backend only through the `services/` folder, so all API logic is centralized in one place rather than scattered across components.
 
 
-
-## RAG Index Setup
-
-Before running the Nexus backend, initialize the required resources for the RAG pipeline.
-
-### 1. Download BM25 Encoder
-
-Downloads the BM25 encoder configuration required for sparse/keyword-based retrieval.
-
-Run from the `backend` directory:
-
-python app/scripts/download_bm25.py
-
-### 2. Create Pinecone Dense Index
-
-Creates the Pinecone dense index used for semantic/vector-based retrieval.
-
-Run:
-
-python app/scripts/create_pinecone_dense_index.py
-
-### 3. Create Pinecone Sparse Index
-
-Creates the Pinecone sparse index used for keyword-based retrieval with BM25.
-
-Run:
-
-python app/scripts/create_pinecone_sparse_index.py
-
-These resources are required for Nexus's hybrid RAG retrieval, which combines:
-
-Dense Retrieval — semantic/meaning-based search
-Sparse Retrieval (BM25) — keyword-based search
-Reciprocal Rank Fusion (RRF) — combines dense and sparse results
-Cohere Reranking — selects the most relevant document chunks
-Running the Backend on Windows
-
-When running FastAPI on Windows, Uvicorn multiprocessing can sometimes cause process-related errors.
-
-Use the provided run.py entry point:
-
-python run.py
-
-Run this command from the backend directory.
