@@ -301,16 +301,17 @@ Downloads the BM25 encoder configuration required for sparse/keyword-based retri
 
 Run from the `backend` directory:
 
-```bash
 python app/scripts/download_bm25.py
-2. Create Pinecone Dense Index
+
+### 2. Create Pinecone Dense Index
 
 Creates the Pinecone dense index used for semantic/vector-based retrieval.
 
 Run:
 
 python app/scripts/create_pinecone_dense_index.py
-3. Create Pinecone Sparse Index
+
+### 3. Create Pinecone Sparse Index
 
 Creates the Pinecone sparse index used for keyword-based retrieval with BM25.
 
