@@ -38,7 +38,7 @@ It has two parts that work together:
 <img width="1917" height="906" alt="image" src="https://github.com/user-attachments/assets/83757184-70ff-4c2f-a16a-9377f77bd6de" />
 
 
-### Retrieval-Augmented Query 
+### Retrieval-Augmented Generation Pipeline Query 
 <img width="1917" height="911" alt="image" src="https://github.com/user-attachments/assets/61067379-5a2f-42f0-9c25-6731a12d980f" />
 
 ### Citation Based Answer for RAG Query
@@ -55,6 +55,8 @@ It has two parts that work together:
 
 
 ---
+
+
 ## Architecture 
 <img width="1536" height="1024" alt="ChatGPT Image Sep 10, 2026, 07_45_39 PM" src="https://github.com/user-attachments/assets/d66d88b1-010f-4f30-bd98-e2de4be7e2d0" />
 
