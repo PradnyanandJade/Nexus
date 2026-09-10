@@ -23,7 +23,10 @@ It has two parts that work together:
 - **Support multiple users** — everyone logs in with their own account, and their conversations and documents are private to them.
 
 ---
+## Screenshots
 
+---
+## Architecture 
 <img width="1536" height="1024" alt="ChatGPT Image Sep 10, 2026, 07_45_39 PM" src="https://github.com/user-attachments/assets/d66d88b1-010f-4f30-bd98-e2de4be7e2d0" />
 
 ## How it works, in plain terms
