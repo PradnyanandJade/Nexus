@@ -60,6 +60,7 @@ If any of the safety checks fail at any point, Nexus stops and sends back a clea
 - **AWS S3** — stores the actual uploaded document files
 - **JWT (JSON Web Tokens)** — handles login sessions, with short-lived access tokens and longer-lived refresh tokens
 - **Docker** — both backend and frontend ship with their own Dockerfiles, plus a `docker-compose.yml` to run everything together
+- **AWS EC2 — Hosting***
 
 **Frontend**
 - **React 19** with **Vite** as the build tool
