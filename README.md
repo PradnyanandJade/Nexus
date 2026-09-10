@@ -25,6 +25,35 @@ It has two parts that work together:
 ---
 ## Screenshots
 
+### Login Page 
+<img width="1916" height="906" alt="image" src="https://github.com/user-attachments/assets/d941cd7e-c808-4533-b056-7efb58eedcdf" />
+
+### Register Page
+<img width="1917" height="911" alt="image" src="https://github.com/user-attachments/assets/b321c84f-f344-4bb5-af2f-eaf5a88f638f" />
+
+### Home Page 
+<img width="1917" height="905" alt="image" src="https://github.com/user-attachments/assets/a00082d8-22ee-488d-8bb4-c8decd1def51" />
+
+### Knowledge Base Page / Uploaded Documents Page
+<img width="1917" height="906" alt="image" src="https://github.com/user-attachments/assets/83757184-70ff-4c2f-a16a-9377f77bd6de" />
+
+
+### Retrieval-Augmented Query 
+<img width="1917" height="911" alt="image" src="https://github.com/user-attachments/assets/61067379-5a2f-42f0-9c25-6731a12d980f" />
+
+### Citation Based Answer for RAG Query
+<img width="1912" height="906" alt="image" src="https://github.com/user-attachments/assets/266e7888-9706-4235-ad26-3d89ed9cbfeb" />
+<img width="1917" height="912" alt="image" src="https://github.com/user-attachments/assets/fa8a69e7-5674-467e-b06f-39a31200f317" />
+
+
+### Queried Web Search
+<img width="1917" height="916" alt="image" src="https://github.com/user-attachments/assets/ca229117-cd43-41b8-a903-752fa91b91ae" />
+
+### Web Search Citations
+<img width="1917" height="902" alt="image" src="https://github.com/user-attachments/assets/0e3ee9da-33a1-480b-b177-1977c2ede687" />
+
+
+
 ---
 ## Architecture 
 <img width="1536" height="1024" alt="ChatGPT Image Sep 10, 2026, 07_45_39 PM" src="https://github.com/user-attachments/assets/d66d88b1-010f-4f30-bd98-e2de4be7e2d0" />
